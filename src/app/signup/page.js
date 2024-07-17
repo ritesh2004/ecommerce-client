@@ -55,7 +55,7 @@ const page = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       console.log(result.user);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/register",
+        "http://localhost:4000/api/v1/googlesign",
         {
           name: result.user.displayName,
           email: result.user.email,
@@ -76,7 +76,7 @@ const page = () => {
       }
     } catch (error) {
       console.log(error);
-      setError(error.response.data.message);
+      setError(error?.response?.data?.message);
     }
   };
 
